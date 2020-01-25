@@ -168,9 +168,15 @@ class HomeScreen extends React.Component {
 const AppNavigator = createStackNavigator({
   Home: {
     screen: HomeScreen,
+    navigationOptions: {
+      header: null,
+    }
   },
   Screen1: {
     screen: Screen1,
+    navigationOptions: {
+      header: null,
+    }
   },
 });
 
