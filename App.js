@@ -151,7 +151,7 @@
 // }
 
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import Screen1  from './Screen1';
@@ -159,7 +159,36 @@ class HomeScreen extends React.Component {
   render() {
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Text onPress={() => this.props.navigation.navigate('Screen1')}>Home Screen</Text>
+        <View style={styles.inputView} >
+          <TextInput  
+            style={styles.inputText}
+            placeholder="Email..." 
+            placeholderTextColor="#003f5c"
+            //onChangeText={text => this.setState({email:text})}
+            />
+        </View>
+        <View style={styles.inputView} >
+          <TextInput  
+            style={styles.inputText}
+            placeholder="Email..." 
+            placeholderTextColor="#003f5c"
+            //onChangeText={text => this.setState({email:text})}
+            />
+        </View>
+
+        <TouchableOpacity>
+          <Text style={styles.forgot}>Forgot Password?</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity>
+          <Text style={styles.loginText}>Signup</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity style={styles.loginBtn} onPress={() => this.props.navigation.navigate('Screen1')}>
+          <Text style={styles.loginText}>LOGIN</Text>
+        </TouchableOpacity>
+
+        {/* <Text onPress={() => this.props.navigation.navigate('Screen1')}>Home Screen</Text> */}
       </View>
     );
   }
@@ -179,5 +208,41 @@ const AppNavigator = createStackNavigator({
     }
   },
 });
+
+const styles = StyleSheet.create({
+  inputView:{
+    width:"80%",
+    backgroundColor:"#465881",
+    borderRadius:25,
+    height:50,
+    marginBottom:20,
+    justifyContent:"center",
+    padding:20
+  },
+
+  inputText:{
+    height:50,
+    color:"white"
+  },
+
+  forgot:{
+    color:"white",
+    fontSize:11
+  },
+
+  loginBtn:{
+    width:"80%",
+    backgroundColor:"#fb5b5a",
+    borderRadius:25,
+    height:50,
+    alignItems:"center",
+    justifyContent:"center",
+    marginTop:40,
+    marginBottom:10
+  },
+
+
+
+})
 
 export default createAppContainer(AppNavigator);
